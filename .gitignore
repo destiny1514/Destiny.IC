@@ -1,18 +1,188 @@
-# This .gitignore is appropriate for repositories deployed to GitHub Pages and using
-# a Gemfile as specified at https://github.com/github/pages-gem#conventional
+# Archivos del sistema
+.DS_Store
+Thumbs.db
 
-# Basic Jekyll gitignores (synchronize to Jekyll.gitignore)
-_site/
-.sass-cache/
-.jekyll-cache/
-.jekyll-metadata
+# Carpetas comunes que no deben subirse
+node_modules/
+dist/
+build/
+temp/
+.cache/
 
-# Additional Ruby/bundler ignore for when you run: bundle install
-/vendor
+# Archivos de configuración sensibles o locales
+.env
+*.log
 
-# Specific ignore for GitHub Pages
-# GitHub Pages will always use its own deployed version of pages-gem 
-# This means GitHub Pages will NOT use your Gemfile.lock and therefore it is
-# counterproductive to check this file into the repository.
-# Details at https://github.com/github/pages-gem/issues/768
-Gemfile.lock
+# Salidas de compiladores o empaquetadores
+*.zip
+*.tar.gz
+*.bak
+
+# Ignorar carpetas de editores
+.vscode/
+.idea/
+
+# Archivos del sistema operativo
+desktop.ini
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Destiny.IC</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-color: #000;
+      color: #fff;
+    }
+    header {
+      background: #4040fb;
+      text-align: center;
+      padding: 2rem 1rem;
+    }
+    header h1 {
+      color: white;
+      font-size: 3rem;
+      animation: fadeIn 2s ease-in-out;
+    }
+    .section {
+      padding: 3rem 1rem;
+      border-bottom: 2px solid gold;
+      animation: slideUp 1s ease-in-out;
+    }
+    .section h2 {
+      color: gold;
+      margin-bottom: 1rem;
+    }
+    .media-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1rem;
+    }
+    .media-item {
+      background-color: #1a1a1a;
+      padding: 1rem;
+      border: 1px solid #4040fb;
+      border-radius: 10px;
+      transition: transform 0.3s;
+    }
+    .media-item:hover {
+      transform: scale(1.05);
+    }
+    .circle-button {
+      position: fixed;
+      bottom: 20px;
+      width: 60px;
+      height: 60px;
+      background-color: gold;
+      color: black;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
+      font-size: 2rem;
+      box-shadow: 0 0 10px #4040fb;
+      z-index: 1000;
+      cursor: pointer;
+    }
+    .circle-button.whatsapp {
+      right: 90px;
+    }
+    .circle-button.instagram {
+      right: 20px;
+    }
+    .language-switcher {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      background-color: #4040fb;
+      color: white;
+      border: none;
+      padding: 0.5rem 1rem;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    .stars {
+      color: gold;
+      font-size: 1.5rem;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+    @keyframes slideUp {
+      from { transform: translateY(20px); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
+    }
+  </style>
+</head>
+<body>
+  <button class="language-switcher" onclick="toggleLanguage()">EN/ES</button>
+
+  <header>
+    <img src="your-uploaded-image.jpg" alt="Destiny.IC logo" style="max-width: 200px;">
+    <h1>Destiny.IC</h1>
+  </header>
+
+  <section class="section" id="who-we-are">
+    <h2>🌟 Quiénes Somos y Por Qué Puedes Confiar en Nosotros</h2>
+    <p>“La innovación es nuestra prioridad, junto a la calidad en el servicio al cliente y los productos que ofrecemos.”</p>
+  </section>
+
+  <section class="section" id="services">
+    <h2>💼 Mis Servicios</h2>
+
+    <h3>Diseños</h3>
+    <div class="media-grid">
+      <div class="media-item">Imagen/Prompt de Robot – Clic para ver explicación</div>
+      <div class="media-item">Imagen/Interés Común – Clic para ver explicación</div>
+    </div>
+
+    <h3>Creación de Videos</h3>
+    <div class="media-grid">
+      <div class="media-item">Video de autos y emprendedores con IA</div>
+      <div class="media-item">Explicación clara de cada elemento</div>
+    </div>
+
+    <h3>Diseño de Tarjetas</h3>
+    <div class="media-grid">
+      <div class="media-item">Invitaciones de cumpleaños y bodas</div>
+      <div class="media-item">Celebraciones – Importancia psicológica de compartir</div>
+    </div>
+
+    <h3>Creación de Imágenes</h3>
+    <div class="media-grid">
+      <div class="media-item">Video sobre impacto diario de las imágenes</div>
+      <div class="media-item">Origen de la IA y su uso en redes sociales</div>
+    </div>
+  </section>
+
+  <section class="section" id="comments">
+    <h2>💬 Comentarios</h2>
+    <button class="circle-button" onclick="showCommentBox()">+</button>
+    <div id="comment-box" style="display:none; margin-top: 1rem;">
+      <textarea rows="4" style="width:100%;"></textarea><br />
+      <div class="stars">⭐️⭐️⭐️⭐️⭐️</div>
+      <button onclick="alert('¡Gracias por tu comentario!')">Enviar</button>
+    </div>
+  </section>
+
+  <a class="circle-button whatsapp" href="https://wa.link/z3kam5" target="_blank" title="WhatsApp">📱</a>
+  <a class="circle-button instagram" href="https://www.instagram.com/destiny.ic_/" target="_blank" title="Instagram">📸</a>
+
+  <script>
+    function toggleLanguage() {
+      alert("Funcionalidad de cambio de idioma próximamente disponible.");
+    }
+
+    function showCommentBox() {
+      const box = document.getElementById('comment-box');
+      box.style.display = box.style.display === 'none' ? 'block' : 'none';
+    }
+  </script>
+</body>
+</html>
